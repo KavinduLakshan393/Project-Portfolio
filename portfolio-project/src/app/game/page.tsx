@@ -1,118 +1,47 @@
-< !DOCTYPE html >
+import React from 'react';
+import SkillGrid from '@/components/sections/SkillGrid';
+import ContactForm from '@/components/sections/ContactForm';
 
-    <html class="dark" lang="en"><head>
-        <meta charset="utf-8" />
-        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <title>Lakshan.Studio</title>
-        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-        <script id="tailwind-config">
-            tailwind.config = {
-                darkMode: "class",
-            theme: {
-                extend: {
-                "colors": {
-                "on-primary-fixed": "#261a00",
-            "on-secondary-container": "#d6e5ff",
-            "surface-bright": "#343946",
-            "surface-variant": "#2f3541",
-            "on-secondary-fixed": "#001c39",
-            "surface-container-highest": "#2f3541",
-            "on-primary-fixed-variant": "#5c4300",
-            "surface-container-low": "#161c27",
-            "inverse-surface": "#dde2f3",
-            "primary-container": "#100900",
-            "on-secondary-fixed-variant": "#004883",
-            "on-error-container": "#ffdad6",
-            "tertiary-container": "#000a1a",
-            "on-secondary": "#00315d",
-            "outline": "#909096",
-            "on-tertiary-fixed-variant": "#3a485c",
-            "on-surface": "#dde2f3",
-            "surface-dim": "#0e131f",
-            "error-container": "#93000a",
-            "surface": "#0e131f",
-            "inverse-primary": "#795900",
-            "secondary-fixed": "#d4e3ff",
-            "on-tertiary-fixed": "#0d1c2f",
-            "on-tertiary": "#233144",
-            "on-surface-variant": "#c6c6cc",
-            "on-background": "#dde2f3",
-            "secondary": "#a4c9ff",
-            "error": "#ffb4ab",
-            "primary-fixed": "#ffdf9f",
-            "secondary-container": "#0267b8",
-            "primary-fixed-dim": "#f9bd22",
-            "on-error": "#690005",
-            "primary": "#f9bd22",
-            "outline-variant": "#45474c",
-            "surface-container-lowest": "#080e19",
-            "tertiary-fixed": "#d5e3fd",
-            "background": "#0e131f",
-            "on-tertiary-container": "#6c7a90",
-            "tertiary-fixed-dim": "#b9c7e0",
-            "on-primary": "#402d00",
-            "tertiary": "#b9c7e0",
-            "secondary-fixed-dim": "#a4c9ff",
-            "inverse-on-surface": "#2b303d",
-            "surface-container": "#1a202b",
-            "on-primary-container": "#9b7300",
-            "surface-tint": "#f9bd22",
-            "surface-container-high": "#242a36"
-                    },
-            "borderRadius": {
-                "DEFAULT": "0.125rem",
-            "lg": "0.25rem",
-            "xl": "0.5rem",
-            "full": "0.75rem"
-                    },
-            "spacing": { },
-            "fontFamily": {
-                "headline": ["Space Grotesk", "sans-serif"],
-            "body": ["Inter", "sans-serif"],
-            "label": ["Space Grotesk", "sans-serif"]
-                    }
-                },
-            },
-        }
-        </script>
-        <style>
-            body {background - color: #0e131f; color: #dde2f3; }
-        </style>
-    </head>
-        <body class="font-body antialiased selection:bg-primary/30 selection:text-primary">
-            <nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl border-b border-[#f9bd22]/20 shadow-[0_0_20px_rgba(249,189,34,0.05)] transition-all duration-300">
-                <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
-                    <div class="flex items-center space-x-2 shrink-0">
-                        <span class="material-symbols-outlined text-[#f9bd22] text-2xl" data-icon="sports_esports" data-weight="fill" style="font-variation-settings: 'FILL' 1;">sports_esports</span>
-                        <span class="text-xl font-bold tracking-tighter text-white font-headline">
-                            Lakshan<span class="text-[#f9bd22]">.Studio</span>
-                        </span>
+export default function GamePortfolio() {
+    return (
+        <div className="bg-surface-container-lowest text-on-surface font-body antialiased min-h-screen">
+            <main className="flex-grow pt-8">
+                {/* Hero Section */}
+                <section className="py-24 px-6 max-w-7xl mx-auto">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <div className="space-y-8">
+                            <h1 className="font-headline text-5xl lg:text-7xl font-bold tracking-tighter leading-tight text-white uppercase">
+                                Crafting <span className="text-theme-primary transition-all duration-300 shadow-[0_0_15px_var(--theme-glow)] inline-block">Immersive Worlds</span> with Precision
+                            </h1>
+                            <p className="font-body text-on-surface-variant text-lg max-w-xl leading-relaxed">
+                                Game architect specializing in deep-tech systems, real-time optimization, and high-fidelity render pipelines.
+                            </p>
+                            <div className="flex flex-wrap gap-4 pt-4">
+                                <a className="bg-gradient-to-br from-theme-primary to-theme-container text-theme-on-primary font-label font-bold tracking-widest uppercase px-8 py-4 rounded-none shadow-[0_0_15px_var(--theme-glow)] hover:brightness-110 transition-all" href="#projects">
+                                    Load Projects
+                                </a>
+                                <a className="border border-theme-primary/30 text-theme-primary font-label font-bold tracking-widest uppercase px-8 py-4 rounded-none hover:bg-theme-primary/5 transition-all" href="#contact">
+                                    Initiate Comm
+                                </a>
+                            </div>
+                        </div>
+                        <div className="relative h-[600px] border border-theme-primary/20 shadow-[0_0_20px_var(--theme-glow)] bg-slate-900 overflow-hidden">
+                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--theme-glow)_0%,transparent_70%)] z-10"></div>
+                            <img alt="Game engine development view" className="object-cover w-full h-full opacity-60 grayscale hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC898zyDojOXX_aJcaflu_bLfgTmCIIHixqCYgjGht3Q9lv_b9Yi5mu6Nx8_-jQPa1KX1_d2ITi27olqGh4e15OvlE0A_0fXfBWJ1k3qvSHZ8bm8JHghh-8woy4EdKNHJbH7vc7Yy3z_-m-_8Lk-qoa3QW6khHazmcIMKMq4ACZFYJrU9I_ysiqk1__GrR7hfwzB37yij8PJuVbGghv4QYbYv0clf_ru8782FZLAEX4NXey00Yr9xw6mF5jTcJTUN3282U4NB9ok_A" />
+                        </div>
                     </div>
-                    <ul class="hidden md:flex items-center space-x-8">
-                        <li>
-                            <a class="font-['Space_Grotesk'] uppercase tracking-[0.15em] font-bold text-xs text-[#f9bd22] border-b-2 border-[#f9bd22] pb-1 hover:text-[#f9bd22] transition-all duration-100 flex-col" href="#">PROJECTS</a>
-                        </li>
-                        <li>
-                            <a class="font-['Space_Grotesk'] uppercase tracking-[0.15em] font-bold text-xs text-slate-400 hover:text-[#f9bd22] transition-all duration-100" href="#">SKILLS</a>
-                        </li>
-                        <li>
-                            <a class="font-['Space_Grotesk'] uppercase tracking-[0.15em] font-bold text-xs text-slate-400 hover:text-[#f9bd22] transition-all duration-100" href="#">EXPERIENCE</a>
-                        </li>
-                        <li>
-                            <a class="font-['Space_Grotesk'] uppercase tracking-[0.15em] font-bold text-xs text-slate-400 hover:text-[#f9bd22] transition-all duration-100" href="#">ABOUT ME</a>
-                        </li>
-                    </ul>
-                    <div class="flex items-center space-x-4 shrink-0">
-                        <button class="hidden md:inline-flex items-center justify-center px-6 py-2.5 bg-gradient-to-br from-primary to-on-primary-container text-on-primary font-label text-sm font-bold uppercase tracking-widest rounded-none shadow-[0_0_15px_rgba(249,189,34,0.3)] hover:shadow-[0_0_25px_rgba(249,189,34,0.5)] transition-all duration-200 active:scale-95">
-                            Collaborate
-                        </button>
-                        <button aria-label="Menu" class="md:hidden text-[#f9bd22] hover:text-primary-fixed-dim transition-colors p-2">
-                            <span class="material-symbols-outlined text-3xl" data-icon="menu">menu</span>
-                        </button>
-                    </div>
-                </div>
-            </nav>
-        </body></html>
+                </section>
+
+                {/* Skills Section */}
+                <section className="py-24 px-6 bg-surface-container-low/30" id="skills">
+                    <SkillGrid />
+                </section>
+
+                {/* Contact Section */}
+                <section className="py-24 px-6 max-w-7xl mx-auto" id="contact">
+                    <ContactForm />
+                </section>
+            </main>
+        </div>
+    );
+}
