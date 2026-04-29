@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kavindu Lakshan Portfolio
+
+A modern developer portfolio built with Next.js, React, TypeScript, and Tailwind CSS.
+
+This portfolio is structured to showcase two main areas:
+
+1. Web development
+2. Game development
+
+## Tech Stack
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- App Router
+- GitHub
+
+## Main Features
+
+- Separate Web Engineering and Game Development sections
+- Dynamic project detail pages
+- Centralized project, skill, and profile data
+- Responsive layout
+- Clean portfolio case study structure
+- SEO metadata for portfolio identity
+
+## Project Structure
+
+```txt
+portfolio-project/
+├── public/
+├── src/
+│   ├── app/
+│   │   ├── about/
+│   │   ├── game/
+│   │   │   └── projects/[slug]/
+│   │   ├── web/
+│   │   │   └── projects/[slug]/
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── components/
+│   ├── data/
+│   │   ├── index.ts
+│   │   ├── profile.ts
+│   │   ├── projects.ts
+│   │   └── skills.ts
+│   └── types/
+│       └── portfolio.ts
+├── package.json
+└── README.md
+```
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open the local site:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```txt
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Build
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Lint
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run lint
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Important Files
 
-## Deploy on Vercel
+### `src/data/profile.ts`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Stores personal profile information such as name, title, summary, email, GitHub link, and highlights.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### `src/data/projects.ts`
+
+Stores all web and game project data.
+
+### `src/data/skills.ts`
+
+Stores technical skills grouped by category.
+
+### `src/types/portfolio.ts`
+
+Stores the TypeScript types used by the portfolio data.
+
+## Next Improvements
+
+* Add real project screenshots
+* Add live demo links
+* Add GitHub links for each project
+* Add a downloadable CV in the `public` folder
+* Add Open Graph image for better social media previews
+* Replace placeholder project data with completed real projects
+* Improve contact form with backend or form service integration
+
+## Author
+
+Kavindu Lakshan

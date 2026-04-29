@@ -1,47 +1,204 @@
-import React from 'react';
-import SkillGrid from '@/components/sections/SkillGrid';
-import ContactForm from '@/components/sections/ContactForm';
+import Link from "next/link";
+import { gameProjects, profile, skillCategories } from "@/data";
 
 export default function GamePortfolio() {
-    return (
-        <div className="bg-surface-container-lowest text-on-surface font-body antialiased min-h-screen">
-            <main className="flex-grow pt-8">
-                {/* Hero Section */}
-                <section className="py-24 px-6 max-w-7xl mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        <div className="space-y-8">
-                            <h1 className="font-headline text-5xl lg:text-7xl font-bold tracking-tighter leading-tight text-white uppercase">
-                                Crafting <span className="text-theme-primary transition-all duration-300 shadow-[0_0_15px_var(--theme-glow)] inline-block">Immersive Worlds</span> with Precision
-                            </h1>
-                            <p className="font-body text-on-surface-variant text-lg max-w-xl leading-relaxed">
-                                Game architect specializing in deep-tech systems, real-time optimization, and high-fidelity render pipelines.
-                            </p>
-                            <div className="flex flex-wrap gap-4 pt-4">
-                                <a className="bg-gradient-to-br from-theme-primary to-theme-container text-theme-on-primary font-label font-bold tracking-widest uppercase px-8 py-4 rounded-none shadow-[0_0_15px_var(--theme-glow)] hover:brightness-110 transition-all" href="#projects">
-                                    Load Projects
-                                </a>
-                                <a className="border border-theme-primary/30 text-theme-primary font-label font-bold tracking-widest uppercase px-8 py-4 rounded-none hover:bg-theme-primary/5 transition-all" href="#contact">
-                                    Initiate Comm
-                                </a>
-                            </div>
-                        </div>
-                        <div className="relative h-[600px] border border-theme-primary/20 shadow-[0_0_20px_var(--theme-glow)] bg-slate-900 overflow-hidden">
-                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--theme-glow)_0%,transparent_70%)] z-10"></div>
-                            <img alt="Game engine development view" className="object-cover w-full h-full opacity-60 grayscale hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC898zyDojOXX_aJcaflu_bLfgTmCIIHixqCYgjGht3Q9lv_b9Yi5mu6Nx8_-jQPa1KX1_d2ITi27olqGh4e15OvlE0A_0fXfBWJ1k3qvSHZ8bm8JHghh-8woy4EdKNHJbH7vc7Yy3z_-m-_8Lk-qoa3QW6khHazmcIMKMq4ACZFYJrU9I_ysiqk1__GrR7hfwzB37yij8PJuVbGghv4QYbYv0clf_ru8782FZLAEX4NXey00Yr9xw6mF5jTcJTUN3282U4NB9ok_A" />
-                        </div>
-                    </div>
-                </section>
+  const gameSkills = skillCategories.filter(
+    (category) => category.track === "game" || category.track === "shared",
+  );
 
-                {/* Skills Section */}
-                <section className="py-24 px-6 bg-surface-container-low/30" id="skills">
-                    <SkillGrid />
-                </section>
+  return (
+    <main className="theme-game min-h-screen bg-[#0e0e0e] text-[#e5e2e1]">
+      <section className="mx-auto max-w-7xl px-6 py-24">
+        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div>
+            <p className="mb-4 font-label text-xs uppercase tracking-[0.35em] text-theme-primary">
+              Game Development
+            </p>
 
-                {/* Contact Section */}
-                <section className="py-24 px-6 max-w-7xl mx-auto" id="contact">
-                    <ContactForm />
-                </section>
-            </main>
+            <h1 className="font-headline text-4xl font-semibold tracking-tight md:text-6xl">
+              Crafting interactive systems with clear gameplay logic.
+            </h1>
+
+            <p className="mt-6 max-w-2xl text-base leading-8 text-on-surface-variant">
+              I explore game systems through Unity, C#, interaction logic,
+              player movement, collision behavior, and real-time design
+              constraints.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href="#projects"
+                className="rounded-full bg-theme-primary px-5 py-3 text-sm font-semibold text-black"
+              >
+                View Projects
+              </a>
+
+              <a
+                href={`mailto:${profile.email}`}
+                className="rounded-full border border-white/10 px-5 py-3 text-sm font-semibold text-white hover:border-theme-primary"
+              >
+                Contact Me
+              </a>
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-6">
+            <p className="font-label text-xs uppercase tracking-[0.3em] text-theme-primary">
+              Game Systems Snapshot
+            </p>
+
+            <div className="mt-6 grid gap-4">
+              {[
+                "Player movement and input handling",
+                "Collision and interaction logic",
+                "Scene structure and gameplay flow",
+                "Unity and C# prototype development",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm text-on-surface-variant"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-    );
+      </section>
+
+      <section id="projects" className="mx-auto max-w-7xl px-6 py-20">
+        <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <div>
+            <p className="mb-3 font-label text-xs uppercase tracking-[0.35em] text-theme-primary">
+              Selected Work
+            </p>
+            <h2 className="font-headline text-3xl font-semibold md:text-4xl">
+              Game Projects
+            </h2>
+          </div>
+
+          <p className="max-w-xl text-sm leading-7 text-on-surface-variant">
+            Game projects should show systems thinking, not only screenshots.
+            Explain movement, logic, constraints, testing, and what improved.
+          </p>
+        </div>
+
+        <div className="grid gap-5 md:grid-cols-2">
+          {gameProjects.map((project) => (
+            <Link
+              key={project.slug}
+              href={`/game/projects/${project.slug}`}
+              className="group rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-theme-primary/60 hover:bg-white/[0.06]"
+            >
+              <div className="mb-6 flex items-center justify-between gap-4">
+                <span className="rounded-full border border-theme-primary/30 px-3 py-1 text-xs uppercase tracking-[0.2em] text-theme-primary">
+                  {project.status}
+                </span>
+                <span className="text-sm text-white/40">{project.year}</span>
+              </div>
+
+              <h3 className="font-headline text-2xl font-semibold">
+                {project.title}
+              </h3>
+
+              <p className="mt-3 text-sm leading-7 text-on-surface-variant">
+                {project.tagline}
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-2">
+                {project.techStack.slice(0, 4).map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-full bg-white/[0.06] px-3 py-1 text-xs text-white/70"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-8 flex items-center justify-between text-sm font-semibold text-theme-primary">
+                <span>Read case study</span>
+                <span className="material-symbols-outlined transition group-hover:translate-x-1">
+                  arrow_forward
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section id="skills" className="mx-auto max-w-7xl px-6 py-20">
+        <p className="mb-3 font-label text-xs uppercase tracking-[0.35em] text-theme-primary">
+          Skills
+        </p>
+
+        <h2 className="font-headline text-3xl font-semibold md:text-4xl">
+          Game Development Stack
+        </h2>
+
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {gameSkills.map((category) => (
+            <div
+              key={category.title}
+              className="rounded-3xl border border-white/10 bg-white/[0.03] p-6"
+            >
+              <span className="material-symbols-outlined text-theme-primary">
+                {category.icon}
+              </span>
+
+              <h3 className="mt-4 font-headline text-xl font-semibold">
+                {category.title}
+              </h3>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                {category.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="rounded-full bg-black/30 px-3 py-1 text-xs text-on-surface-variant"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="contact" className="mx-auto max-w-7xl px-6 py-20">
+        <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 md:p-10">
+          <p className="mb-3 font-label text-xs uppercase tracking-[0.35em] text-theme-primary">
+            Contact
+          </p>
+
+          <h2 className="font-headline text-3xl font-semibold">
+            Interested in a game project or collaboration?
+          </h2>
+
+          <p className="mt-4 max-w-2xl text-sm leading-7 text-on-surface-variant">
+            Send me a message for game prototypes, interactive systems, or
+            collaboration ideas.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href={`mailto:${profile.email}`}
+              className="rounded-full bg-theme-primary px-5 py-3 text-sm font-semibold text-black"
+            >
+              Send Email
+            </a>
+
+            <a
+              href={profile.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-white/10 px-5 py-3 text-sm font-semibold text-white hover:border-theme-primary"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
 }
