@@ -96,6 +96,22 @@ export default async function GameProjectDetails({ params }: ProjectPageProps) {
           )}
         </div>
 
+        <section className="mt-12 grid gap-4 md:grid-cols-4">
+          <RepoMeta label="Source" value={project.source ?? "Manual"} />
+          <RepoMeta
+            label="Repository"
+            value={project.repositoryName ?? "Not specified"}
+          />
+          <RepoMeta
+            label="Language"
+            value={project.primaryLanguage ?? "Not specified"}
+          />
+          <RepoMeta
+            label="Updated"
+            value={project.lastUpdated ?? "Not specified"}
+          />
+        </section>
+
         <section className="mt-16 grid gap-6 md:grid-cols-2">
           <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-6">
             <h2 className="font-headline text-2xl font-semibold">Problem</h2>
@@ -134,6 +150,17 @@ export default async function GameProjectDetails({ params }: ProjectPageProps) {
         </section>
       </article>
     </main>
+  );
+}
+
+function RepoMeta({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+      <p className="font-label text-[10px] uppercase tracking-[0.25em] text-theme-primary">
+        {label}
+      </p>
+      <p className="mt-2 break-words text-sm text-on-surface-variant">{value}</p>
+    </div>
   );
 }
 

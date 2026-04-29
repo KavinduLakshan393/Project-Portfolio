@@ -2,6 +2,8 @@ export type PortfolioTrack = "web" | "game";
 
 export type ProjectStatus = "Completed" | "In Progress" | "Prototype";
 
+export type ProjectSource = "GitHub" | "Manual";
+
 export type ExternalLink = {
   label: string;
   href: string;
@@ -43,4 +45,11 @@ export type Project = {
   learnings: string[];
   liveUrl?: string;
   githubUrl?: string;
+
+  source?: ProjectSource;
+  repositoryName?: string;
+  repositoryUrl?: string;
+  primaryLanguage?: string;
+  lastUpdated?: string;
+  featured?: boolean;
 };

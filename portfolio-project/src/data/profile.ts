@@ -5,15 +5,15 @@ export const profile: Profile = {
   title: "Web Developer & Game Developer",
   location: "Sri Lanka",
   summary:
-    "I build clean, responsive, and practical digital products using modern web technologies. My focus is turning ideas into usable interfaces, scalable project structures, and reliable user experiences.",
-  email: "your-email@example.com",
+    "I build clean, responsive, and practical digital products using modern web technologies. My work includes portfolio systems, POS and inventory platforms, mobile applications, management systems, and Unity game prototypes.",
+  email: "kavinduuni@gmail.com",
   githubUrl: "https://github.com/KavinduLakshan393",
-  linkedinUrl: "https://www.linkedin.com/in/your-linkedin-profile",
+  linkedinUrl: "https://www.linkedin.com/in/kavindu-lakshan-6536b83b1",
   resumeUrl: "/Kavindu-Lakshan-CV.pdf",
   highlights: [
-    "Focused on React, Next.js, TypeScript, and Tailwind CSS",
-    "Interested in scalable frontend architecture and full-stack development",
-    "Able to structure projects for real-world maintainability",
-    "Exploring game development, interactive systems, and real-time logic",
+    "Building projects with React, Next.js, TypeScript, Tailwind CSS, Flutter, PHP, C#, and Unity",
+    "Interested in scalable frontend architecture, practical business software, and full-stack development",
+    "Created GitHub projects across POS systems, portfolio development, mobile apps, management systems, and game prototypes",
+    "Focused on improving code structure, project documentation, and real-world portfolio presentation",
   ],
 };

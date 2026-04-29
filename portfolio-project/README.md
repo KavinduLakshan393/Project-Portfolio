@@ -2,10 +2,18 @@
 
 A modern developer portfolio built with Next.js, React, TypeScript, and Tailwind CSS.
 
-This portfolio is structured to showcase two main areas:
+This portfolio showcases projects from my GitHub profile across:
 
 1. Web development
-2. Game development
+2. Software systems
+3. Mobile applications
+4. Game development
+
+## Profile Links
+
+- GitHub: https://github.com/KavinduLakshan393
+- LinkedIn: https://www.linkedin.com/in/kavindu-lakshan-6536b83b1
+- Email: kavinduuni@gmail.com
 
 ## Tech Stack
 
@@ -13,16 +21,22 @@ This portfolio is structured to showcase two main areas:
 - React
 - TypeScript
 - Tailwind CSS
-- App Router
-- GitHub
+- Flutter
+- Dart
+- PHP
+- C#
+- Unity
+- PostgreSQL
+- Supabase
 
 ## Main Features
 
-- Separate Web Engineering and Game Development sections
+- Separate Web and Game portfolio sections
 - Dynamic project detail pages
 - Centralized project, skill, and profile data
+- GitHub-sourced project information
 - Responsive layout
-- Clean portfolio case study structure
+- Clear case study structure
 - SEO metadata for portfolio identity
 
 ## Project Structure
@@ -88,11 +102,11 @@ npm run lint
 
 ### `src/data/profile.ts`
 
-Stores personal profile information such as name, title, summary, email, GitHub link, and highlights.
+Stores personal profile information such as name, title, summary, email, GitHub link, LinkedIn link, and highlights.
 
 ### `src/data/projects.ts`
 
-Stores all web and game project data.
+Stores curated project data from GitHub repositories.
 
 ### `src/data/skills.ts`
 
@@ -104,13 +118,12 @@ Stores the TypeScript types used by the portfolio data.
 
 ## Next Improvements
 
-* Add real project screenshots
-* Add live demo links
-* Add GitHub links for each project
+* Add real screenshots for each project
+* Add live demo links where available
 * Add a downloadable CV in the `public` folder
 * Add Open Graph image for better social media previews
-* Replace placeholder project data with completed real projects
-* Improve contact form with backend or form service integration
+* Add better project filtering by technology
+* Rename the Web section to Software if mobile and desktop projects remain inside it
 
 ## Author
 
