@@ -29,9 +29,9 @@ function ArtDirection({project}: {project: Project}) {
           <div className="studio-demo-body"><div className="studio-demo-aside"><b>F</b><i/><i/><i/></div><div className="studio-demo-main"><small>STORE OVERVIEW / TODAY</small><strong>Simple. Fast. In control.</strong><div className="studio-demo-stats"><span>SALES TODAY <b>LKR —</b></span><span>INVENTORY <b>LIVE</b></span></div><div className="studio-demo-chart"><i/><i/><i/><i/><i/><i/><i/><i/><i/><i/></div></div></div>
         </div>
       ) : kind === "mobile" ? (
-        <div className="studio-mobile-scene" aria-hidden="true"><span className="studio-mobile-orbit"/><div className="studio-phone"><div className="studio-phone-notch"/><small>SMART AUTO HUB</small><b>Everything<br/>automotive.</b><div className="studio-phone-graphic">↗</div><div className="studio-phone-lines"><span/><span/><span/></div><div className="studio-phone-bottom">HOME　 EXPLORE　 PROFILE</div></div></div>
+        <div className="studio-mobile-scene" aria-hidden="true"><span className="studio-mobile-orbit"/><div className="studio-phone"><div className="studio-phone-notch"/><small>{project.slug === "medi-reminder" ? "MEDI REMINDER" : "MOBILE EXPERIENCE"}</small><b>{project.slug === "medi-reminder" ? <>Your day,<br/>on schedule.</> : <>Built for<br/>your pocket.</>}</b><div className="studio-phone-graphic">↗</div><div className="studio-phone-lines"><span/><span/><span/></div><div className="studio-phone-bottom">HOME　 EXPLORE　 PROFILE</div></div></div>
       ) : kind === "game" ? (
-        <div className="studio-game-scene" aria-hidden="true"><div className="studio-game-sphere"/><span className="studio-game-dash">PLAY<br/>MODE</span><span className="studio-game-coords">X 034 / Y 026<br/>UNITY ENGINE</span></div>
+        <div className="studio-game-scene" aria-hidden="true"><div className="studio-game-sphere"/><span className="studio-game-dash">{project.slug === "my-first-game" ? <>DELIVERY<br/>DASH</> : <>PLAY<br/>MODE</>}</span><span className="studio-game-coords">X 034 / Y 026<br/>UNITY ENGINE</span></div>
       ) : (
         <div className="studio-code-scene" aria-hidden="true"><span className="studio-code-glyph">&lt;/&gt;</span><span>DESIGNED TO BE BUILT.</span></div>
       )}
