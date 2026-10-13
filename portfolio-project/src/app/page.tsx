@@ -4,12 +4,12 @@ import { WorkFilter } from "@/components/WorkFilter";
 
 const allProjects = [...webProjects, ...gameProjects];
 const selection = [
-  "flux-pos-inventory-system-v2",
-  "smart-auto-hub-android",
+  "villa-cinnamoon-castle",
+  "medi-reminder",
+  "react-cosmatic-shop",
+  "uor-internship-management-system",
+  "my-first-game",
   "unity-game-02",
-  "flux-pos-inventory-system",
-  "project-portfolio",
-  "unity-game-1",
 ];
 const featured = selection
   .map((slug) => allProjects.find((project) => project.slug === slug))

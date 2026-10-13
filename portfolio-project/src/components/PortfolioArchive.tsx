@@ -4,7 +4,7 @@ import { WorkFilter } from "@/components/WorkFilter";
 
 export function PortfolioArchive({track}: {track: PortfolioTrack}) {
   const isGame = track === "game";
-  const projects = isGame ? gameProjects : webProjects;
+  const projects = isGame ? gameProjects.filter((project) => project.featured) : webProjects;
   return <main className="studio studio-archive" id="top">
     <section className="studio-archive-hero">
       <div className="studio-container">

@@ -11,6 +11,7 @@ export function ProjectStory({project}: {project: Project}) {
       <div className="studio-story-actions">
         {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">VIEW SOURCE ON GITHUB ↗</a>}
         {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">OPEN LIVE PROJECT ↗</a>}
+        {project.additionalLinks?.map((link) => <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">{link.label.toUpperCase()} ↗</a>)}
       </div>
       <div className="studio-story-ribbon"><div><span>YEAR</span><b>{project.year}</b></div><div><span>MY ROLE</span><b>{project.role}</b></div><div><span>STATUS</span><b>{project.status}</b></div><div><span>REPOSITORY</span><b>{project.repositoryName || "GitHub"}</b></div></div>
       <div className="studio-story-body">

@@ -1,6 +1,6 @@
 export { profile } from "./profile";
 export { skillCategories } from "./skills";
-export { webProjects, gameProjects } from "./projects";
+export { webProjects, gameProjects } from "./curation";
 
 export type {
   ExternalLink,
