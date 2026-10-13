@@ -2,100 +2,21 @@ import Link from "next/link";
 import { gameProjects, profile, skillCategories, webProjects } from "@/data";
 
 export default function AboutPage() {
-  const totalProjects = webProjects.length + gameProjects.length;
-
-  return (
-    <main className="min-h-screen bg-[#0e0e0e] px-6 py-24 text-[#e5e2e1]">
-      <section className="mx-auto max-w-5xl">
-        <p className="mb-4 font-label text-xs uppercase tracking-[0.35em] text-theme-primary">
-          About
-        </p>
-
-        <h1 className="font-headline text-4xl font-semibold tracking-tight md:text-6xl">
-          I build structured digital products with clean logic and usable
-          interfaces.
-        </h1>
-
-        <p className="mt-6 max-w-3xl text-base leading-8 text-on-surface-variant">
-          {profile.summary}
-        </p>
-
-        <div className="mt-10 grid gap-4 sm:grid-cols-3">
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-            <p className="text-3xl font-semibold">{totalProjects}</p>
-            <p className="mt-2 text-sm text-on-surface-variant">
-              Portfolio projects
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-            <p className="text-3xl font-semibold">{skillCategories.length}</p>
-            <p className="mt-2 text-sm text-on-surface-variant">
-              Skill categories
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-            <p className="text-3xl font-semibold">2026</p>
-            <p className="mt-2 text-sm text-on-surface-variant">
-              Active portfolio year
-            </p>
-          </div>
-        </div>
-
-        <section className="mt-16 grid gap-8 md:grid-cols-[0.8fr_1.2fr]">
-          <div>
-            <h2 className="font-headline text-2xl font-semibold">
-              Current Focus
-            </h2>
-            <p className="mt-4 text-sm leading-7 text-on-surface-variant">
-              I am focused on improving my ability to build production-ready web
-              applications, reusable frontend systems, and clear project
-              documentation. I am also exploring game development concepts such
-              as interaction logic, real-time systems, and Unity workflow.
-            </p>
-          </div>
-
-          <div className="grid gap-3">
-            {profile.highlights.map((highlight) => (
-              <div
-                key={highlight}
-                className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-sm text-on-surface-variant"
-              >
-                {highlight}
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="mt-16 rounded-3xl border border-white/10 bg-white/[0.03] p-8">
-          <h2 className="font-headline text-2xl font-semibold">
-            What I want this portfolio to prove
-          </h2>
-
-          <p className="mt-4 max-w-3xl text-sm leading-7 text-on-surface-variant">
-            A portfolio should not only look good. It should prove that the
-            developer can think clearly, structure code properly, explain
-            decisions, and complete usable products. This site is being improved
-            with that goal.
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/web"
-              className="rounded-full bg-theme-primary px-5 py-3 text-sm font-semibold text-black"
-            >
-              View Web Work
-            </Link>
-            <Link
-              href="/game"
-              className="rounded-full border border-white/10 px-5 py-3 text-sm font-semibold text-white hover:border-theme-primary"
-            >
-              View Game Work
-            </Link>
-          </div>
-        </section>
-      </section>
-    </main>
-  );
+  const count = gameProjects.length + webProjects.length;
+  return <main className="studio studio-about" id="top">
+    <section className="studio-archive-hero studio-about-hero">
+      <div className="studio-container"><div className="studio-archive-meta"><span>ABOUT / THE PERSON</span><span>BASED IN SRI LANKA</span></div>
+        <h1>CURIOUS BY<br/><em>DESIGN.</em></h1>
+        <div className="studio-archive-bottom"><p>{profile.summary}</p><span>WEB / MOBILE / GAME</span></div>
+      </div>
+    </section>
+    <section className="studio-about-body">
+      <div className="studio-container">
+        <div className="studio-about-intro"><p className="studio-kicker"><span className="studio-kicker-line"/> THE SHORT VERSION</p><h2>HI, I&apos;M<br/><em>KAVINDU.</em></h2><div><p>I&apos;m a developer who enjoys turning complex ideas into something people can actually use. I work across web, mobile and game development — with a focus on useful functionality and thoughtful details.</p><a href={profile.githubUrl} target="_blank" rel="noopener noreferrer" className="studio-text-link">SEE WHAT I&apos;M BUILDING ↗</a></div></div>
+        <div className="studio-about-numbers"><div><strong>{String(count).padStart(2, "0")}</strong><span>CURATED PROJECTS</span></div><div><strong>{String(skillCategories.length).padStart(2, "0")}</strong><span>SKILL AREAS</span></div><div><strong>03</strong><span>FIELDS: WEB, MOBILE, GAME</span></div></div>
+        <div className="studio-about-skill"><p className="studio-kicker"><span className="studio-kicker-line"/> TOOLS & CAPABILITIES</p><h2>WHAT&apos;S<br/><em>IN MY STACK?</em></h2><div>{skillCategories.map(group=><section key={group.title}><h3>{group.title}</h3><div>{group.skills.map(skill=><span key={skill}>{skill}</span>)}</div></section>)}</div></div>
+      </div>
+    </section>
+    <section className="studio-about-cta"><div className="studio-container"><p>EVERY GOOD PROJECT STARTS SOMEWHERE.</p><h2>LET&apos;S MAKE<br/>SOMETHING <em>REAL.</em></h2><div><a href={"mailto:"+profile.email} className="studio-text-link">START A CONVERSATION ↗</a><Link href="/#work">VIEW SELECTED WORK ↗</Link></div></div></section>
+  </main>;
 }

@@ -45,6 +45,7 @@ export type Project = {
   learnings: string[];
   liveUrl?: string;
   githubUrl?: string;
+  additionalLinks?: ExternalLink[];
 
   source?: ProjectSource;
   repositoryName?: string;

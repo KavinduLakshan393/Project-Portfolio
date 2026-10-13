@@ -1,76 +1,92 @@
 import Link from "next/link";
+import { gameProjects, profile, webProjects } from "@/data";
+import { WorkFilter } from "@/components/WorkFilter";
 
-const domains = [
-  {
-    label: "Domain 01",
-    title: "Web Engineering",
-    description:
-      "Modern web applications, responsive interfaces, scalable frontend architecture, and practical digital products.",
-    href: "/web",
-    icon: "language",
-    tech: "React // Next.js // TypeScript // Tailwind",
-  },
-  {
-    label: "Domain 02",
-    title: "Game Development",
-    description:
-      "Interactive systems, gameplay logic, real-time constraints, Unity prototypes, and game experience design.",
-    href: "/game",
-    icon: "sports_esports",
-    tech: "Unity // C# // Game Logic // Interaction",
-  },
+const allProjects = [...webProjects, ...gameProjects];
+const selection = [
+  "villa-cinnamoon-castle",
+  "medi-reminder",
+  "react-cosmatic-shop",
+  "uor-internship-management-system",
+  "my-first-game",
+  "unity-game-02",
 ];
+const featured = selection
+  .map((slug) => allProjects.find((project) => project.slug === slug))
+  .filter((project): project is (typeof allProjects)[number] => Boolean(project));
 
-export default function PortfolioGateway() {
+export default function HomePage() {
   return (
-    <main className="min-h-screen bg-[#0e0e0e] text-[#e5e2e1]">
-      <section className="mx-auto flex min-h-screen w-full max-w-7xl flex-col justify-center px-6 py-10">
-        <div className="mb-12 text-center">
-          <p className="mb-3 font-label text-xs uppercase tracking-[0.4em] text-theme-primary">
-            System: Portfolio Online
-          </p>
-          <h1 className="font-headline text-4xl font-semibold tracking-tight md:text-6xl">
-            Kavindu Lakshan
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-on-surface-variant md:text-base">
-            Web developer and game developer focused on building clean,
-            structured, and practical digital experiences.
-          </p>
+    <main className="studio">
+      <section className="studio-hero" aria-labelledby="hero-title">
+        <div className="studio-hero-top studio-container">
+          <span className="studio-micro"><span className="studio-live-dot" /> SOFTWARE DEVELOPER · SRI LANKA</span>
+          <span className="studio-micro">INDEPENDENT WORK / 2026</span>
         </div>
+        <div className="studio-hero-orb" aria-hidden="true"><div className="studio-orb-core" /><div className="studio-orb-orbit studio-orb-orbit-one" /><div className="studio-orb-orbit studio-orb-orbit-two" /><span>KL / 26</span></div>
+        <div className="studio-container studio-hero-main">
+          <p className="studio-hero-intro">KAVINDU LAKSHAN <span>— PORTFOLIO / VOL. 01</span></p>
+          <h1 id="hero-title" className="studio-hero-title">
+            <span>IDEAS</span><span className="studio-outline">INTO</span><span className="studio-hero-last">IMPACT<span className="studio-hero-star" aria-hidden="true">✳</span></span>
+          </h1>
+          <div className="studio-hero-bottom">
+            <div className="studio-hero-scroll"><span className="studio-scroll-mark">↓</span> SCROLL TO EXPLORE</div>
+            <p>Web applications, mobile experiences and playable worlds. Designed with intent. Built with code.</p>
+            <Link href="#work" className="studio-circle-link" aria-label="Explore selected projects">↘</Link>
+          </div>
+        </div>
+        <div className="studio-hero-index" aria-hidden="true">01 / 04</div>
+      </section>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {domains.map((domain) => (
-            <Link
-              key={domain.href}
-              href={domain.href}
-              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-8 transition hover:-translate-y-1 hover:border-theme-primary/60 hover:bg-white/[0.06]"
-            >
-              <div className="absolute right-6 top-6 rounded-full border border-white/10 bg-black/30 p-3 text-theme-primary">
-                <span className="material-symbols-outlined">{domain.icon}</span>
-              </div>
+      <div className="studio-ticker" aria-label="Web development, mobile, game development">
+        <div className="studio-ticker-track" aria-hidden="true">
+          {Array.from({length: 4}, (_, i) => <span key={i}>DEVELOPMENT <b>✳</b> DESIGN THINKING <b>✳</b> INTERACTIVE SYSTEMS <b>✳</b> </span>)}
+        </div>
+      </div>
 
-              <p className="mb-6 font-label text-xs uppercase tracking-[0.35em] text-theme-primary">
-                {domain.label}
-              </p>
+      <section className="studio-work-section" id="work" aria-labelledby="work-title">
+        <div className="studio-container">
+          <div className="studio-section-head">
+            <div><p className="studio-kicker"><span className="studio-kicker-line" /> 01 / FEATURED WORK</p>
+              <h2 id="work-title">MADE TO<br/><em>WORK.</em></h2>
+            </div>
+            <p>Not just concepts. A selection of projects from my actual <a href={profile.githubUrl} target="_blank" rel="noopener noreferrer">GitHub repositories ↗</a> — spanning business software, mobile and games.</p>
+          </div>
+          <WorkFilter projects={featured} />
+          <div className="studio-section-end"><span>THERE’S MORE UNDER THE HOOD.</span><Link href={profile.githubUrl} target="_blank" rel="noopener noreferrer">EXPLORE ALL REPOSITORIES <span aria-hidden="true">↗</span></Link></div>
+        </div>
+      </section>
 
-              <h2 className="font-headline text-3xl font-semibold uppercase md:text-4xl">
-                {domain.title}
-              </h2>
+      <section className="studio-statement" id="approach">
+        <div className="studio-container">
+          <div className="studio-statement-top"><span className="studio-kicker"><span className="studio-kicker-line" /> 02 / THE APPROACH</span><span>THINK / BUILD / REFINE</span></div>
+          <h2>GOOD SOFTWARE<br/>IS MORE THAN<br/><em>WORKING CODE<span aria-hidden="true">.</span></em></h2>
+          <div className="studio-statement-bottom">
+            <span className="studio-asterisk" aria-hidden="true">✳</span>
+            <p>I care about what happens between the idea and the final interaction — the logic, the details, and how people actually use what I build.</p>
+            <Link href="/about" className="studio-text-link">A LITTLE ABOUT ME <span>↗</span></Link>
+          </div>
+        </div>
+      </section>
 
-              <p className="mt-5 max-w-xl text-sm leading-7 text-on-surface-variant">
-                {domain.description}
-              </p>
+      <section className="studio-disciplines" aria-labelledby="disciplines-title">
+        <div className="studio-container">
+          <p className="studio-kicker"><span className="studio-kicker-line" /> 03 / WHAT I DO</p>
+          <h2 id="disciplines-title" className="studio-disciplines-title">THE TOOLKIT<span className="studio-small-star" aria-hidden="true">✳</span></h2>
+          <div className="studio-discipline-list">
+            <Link href="/web"><span>01</span><strong>WEB & FULL STACK</strong><small>REACT / NEXT.JS / TYPESCRIPT</small><b>↗</b></Link>
+            <Link href="/web"><span>02</span><strong>MOBILE EXPERIENCES</strong><small>FLUTTER / DART / ANDROID</small><b>↗</b></Link>
+            <Link href="/game"><span>03</span><strong>GAME & INTERACTION</strong><small>UNITY / C# / GAME SYSTEMS</small><b>↗</b></Link>
+          </div>
+        </div>
+      </section>
 
-              <div className="mt-8 flex items-center justify-between gap-4">
-                <span className="text-xs uppercase tracking-[0.25em] text-white/45">
-                  {domain.tech}
-                </span>
-                <span className="material-symbols-outlined transition group-hover:translate-x-1">
-                  arrow_forward
-                </span>
-              </div>
-            </Link>
-          ))}
+      <section className="studio-contact" id="contact">
+        <div className="studio-container">
+          <div className="studio-contact-top"><span>04 / SAY HELLO</span><span>OPEN TO CONVERSATIONS & COLLABORATION</span></div>
+          <h2>HAVE AN<br/><em>IDEA?</em></h2>
+          <a className="studio-contact-link" href={"mailto:" + profile.email}>LET’S TALK <span aria-hidden="true">↗</span></a>
+          <div className="studio-contact-bottom"><span>KAVINDU LAKSHAN · SRI LANKA</span><a href={profile.githubUrl} target="_blank" rel="noopener noreferrer">FOLLOW THE BUILDS ON GITHUB ↗</a></div>
         </div>
       </section>
     </main>
